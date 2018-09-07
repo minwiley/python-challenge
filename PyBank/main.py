@@ -28,6 +28,35 @@ with open(budget_data_csv, newline="") as csvfile:
 	print("row_count: ", row_count)
 
 
+# Set variable for output file
+output_file = os.path.join("PyBank_sum.csv")
+
+#  Open the output file
+with open(output_file, "w", newline='') as datafile:
+    csvwriter = csv.writer(datafile, delimiter=',')
+    csvwriter.writerow(['Total Months: ', row_count])
+
+
+    
+
+
+
+#     # Specify the file to write to
+# output_path = os.path.join("..", "output", "new.csv")
+
+# # Open the file using "write" mode. Specify the variable to hold the contents
+# with open(output_path, 'w', newline='') as csvfile:
+
+#     # Initialize csv.writer
+#     csvwriter = csv.writer(csvfile, delimiter=',')
+
+#     # Write the first row (column headers)
+#     csvwriter.writerow(['First Name', 'Last Name', 'SSN'])
+
+#     # Write the second row
+#     csvwriter.writerow(['Caleb', 'Frost', '505-80-2901'])
+
+
 
 	# row_count = sum(1 for in open(budget_data_csv))
 	# print("row_count:",row_count)
