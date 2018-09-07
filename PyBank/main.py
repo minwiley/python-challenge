@@ -6,7 +6,8 @@ import csv
 	# The total number of months included in the dataset
 months_entire = []
 	# The total net amount of "Profit/Losses" over the entire period
-profit_loss = []
+ttl_profit_loss = 0
+prof_loss_sum = []
 	# The average change in "Profit/Losses" between months over the entire period
 between_months = []
 	# The greatest increase in profits (date and amount) over the entire period
@@ -25,16 +26,24 @@ with open(budget_data_csv, newline="") as csvfile:
 	print(f"Header: {csv_header}")
 
 	row_count = len(open(budget_data_csv).readlines())
-	print("row_count: ", row_count)
+	print("Total Months: ", row_count)
+
+	for row in csvreader:
+		ttl_profit_loss = ttl_profit_loss + int(row[1])
+
+	print(f"Total: ${ttl_profit_loss}")
 
 
-# Set variable for output file
+# Set variable for output file 	
 output_file = os.path.join("PyBank_sum.csv")
 
 #  Open the output file
 with open(output_file, "w", newline='') as datafile:
     csvwriter = csv.writer(datafile, delimiter=',')
+    csvwriter.writerow(['Financial Analysis'])
+    csvwriter.writerow(['--------------------------','-------------'])
     csvwriter.writerow(['Total Months: ', row_count])
+    csvwriter.writerow(['Total: ', ttl_profit_loss])
 
 
     
