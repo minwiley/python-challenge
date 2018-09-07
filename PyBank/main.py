@@ -17,15 +17,31 @@ GreatDecrease = []
 # cereal
 budget_data_csv = os.path.join("budget_data.csv")
 
+# countmonths = 0
+
 with open(budget_data_csv, newline="") as csvfile:
 	csvreader = csv.reader(csvfile, delimiter=",")
 	csv_header = next(csvreader, None)
 	print(f"Header: {csv_header}")
 
-	for row in csvreader:
+	row_count = len(open(budget_data_csv).readlines())
+	print("row_count: ", row_count)
 
 
-		if
+
+	# row_count = sum(1 for in open(budget_data_csv))
+	# print("row_count:",row_count)
+
+	# for row in csvreader:
+	# 	# countmonths = countmonths + 1 
+	# 	countmonths += 1
+	# 	print ("countmonths:", countmonths)
+
+		# len(open(filename).readlines())
+	 # 	print(len(row(0)))
+
+	# 	# if row 0 
+	# 	count 
 
 
 # with open (cereal_csv,newline="") as csvfile:
