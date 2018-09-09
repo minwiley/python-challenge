@@ -1,14 +1,17 @@
-
 # PyBank
 
 # # modules
 import os
 import csv
 
-months_entire = 0
-ttl_profit_loss = 0
+
+ttl_yield = []
 prof_loss = []
 between_months = []
+monthly_change = []
+
+months_entire = 0
+ttl_profit_loss = 0
 
 # cereal & udemy examples reference
 budget_data_csv = os.path.join("budget_data.csv")
@@ -21,14 +24,20 @@ with open(budget_data_csv, newline="") as csvfile:
 	for row in csvreader:
 		ttl_profit_loss = ttl_profit_loss + int(row[1])
 		prof_loss.append(int(row[1]))
+		ttl_yield.append(int(row[1]))
 		between_months.append(row[0])
 		all_months = len(between_months)
 		# row_count = len(open(budget_data_csv).readlines())
-		avg_sum = round(ttl_profit_loss / all_months,4)
+		# avg_sum = round(ttl_profit_loss / all_months,4)
 
 	print("Total Months: ", all_months)
 	print(f"Total: ${ttl_profit_loss}")
-	print(avg_sum)
+	# print(avg_sum)
+
+	for surev in range(len(ttl_yield)-1):
+		monthly_change.append(ttl_yield[surev +1]-ttl_yield[surev])
+
+	print(sum(monthly_change)/len(monthly_change))
 
 GreatIncrease = prof_loss[0]
 GreatDecrease = prof_loss[0]
@@ -60,7 +69,3 @@ with open(output_file, "w", newline='') as datafile:
     csvwriter.writerow(['Total: \t$' + str( ttl_profit_loss)])
     csvwriter.writerow(['Greatest Increase in Profits: \t' + str(GreatIncrease_month) + '\t$' + str(GreatIncrease)])
     csvwriter.writerow(['Greatest Decrease in Profits: \t' + str(GreatDecrease_month) + '\t$' + str(GreatDecrease)])
-
-
-    
-
