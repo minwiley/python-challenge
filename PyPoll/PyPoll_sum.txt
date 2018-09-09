@@ -1,0 +1,4 @@
+Election Results
+-------------------
+Total number of votes: 	3521001
+-------------------
