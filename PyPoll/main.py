@@ -57,17 +57,17 @@ vote_dict = {"Khan":k_votes,
 
 
 # The percentage of votes each candidate won
-k_percent = round((k_votes/ttl_votes),4)*100
-c_percent = round((c_votes/ttl_votes),4)*100
-l_percent = round((l_votes/ttl_votes),3)*100
-o_percent = round((o_votes/ttl_votes),4)*100
-print('Khan: ', k_percent, '%', '(',k_votes,')\n'
-	"Correy: ", c_percent, '%', '(',c_votes,')\n'
-	"Li: ", l_percent, '%', '(',l_votes , ')\n'
-	"O'Tooley: " ,o_percent, '%', '(',o_votes,')\n'
-	)	
+k_percent = ('{0:.3f}%'.format((k_votes/ttl_votes)*100))
+c_percent = ('{0:.3f}%'.format((c_votes/ttl_votes)*100))
+l_percent = ('{0:.3f}%'.format((l_votes/ttl_votes)*100))
+o_percent = ('{0:.3f}%'.format((o_votes/ttl_votes)*100))
+print('Khan: ', k_percent, '(',k_votes,')\n'
+	"Correy: ", c_percent, '(',c_votes,')\n'
+	"Li: ", l_percent,  '(',l_votes , ')\n'
+	"O'Tooley: " ,o_percent, '(',o_votes,')\n'
+	)
+	
 print('-------------------')	
-
 
 # The winner of the election based on popular vote.
 winner = max(vote_dict, key = lambda x: vote_dict.get(x))
@@ -92,7 +92,7 @@ with open(output_file, "w", newline='') as datafile:
 	csvwriter.writerow(['-------------------'])
 	csvwriter.writerow(['Total Votes: \t' + str(ttl_votes)])
 	csvwriter.writerow(['-------------------'])
-	csvwriter.writerow(['Khan: ' + str(k_percent) + '%\t' + '(' + str(k_votes) +')'])
+	csvwriter.writerow(['Khan: ' + k_percent + '%\t' + '(' + str(k_votes) +')'])
 	csvwriter.writerow(['Correy: ' + str(c_percent) + '%\t' + '(' + str(c_votes) +')'])
 	csvwriter.writerow(['Li: ' + str(l_percent) + '%\t' + '(' + str(l_votes) +')'])
 	csvwriter.writerow(["O'Tooley: " + str(o_percent) + '%\t' + '(' + str(o_votes) +')'])
