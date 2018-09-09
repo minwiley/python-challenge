@@ -19,7 +19,7 @@ budget_data_csv = os.path.join("budget_data.csv")
 with open(budget_data_csv, newline="") as csvfile:
 	csvreader = csv.reader(csvfile, delimiter=",")
 	csv_header = next(csvreader, None)
-	print(f"Header: {csv_header}")
+	# print(f"Header: {csv_header}")
 
 	for row in csvreader:
 		ttl_profit_loss = ttl_profit_loss + int(row[1])
@@ -30,6 +30,8 @@ with open(budget_data_csv, newline="") as csvfile:
 		# row_count = len(open(budget_data_csv).readlines())
 		# avg_sum = round(ttl_profit_loss / all_months,4)
 
+	print('Financial Analysis')
+	print('--------------------')
 	print("Total Months: ", all_months)
 	print(f"Total: ${ttl_profit_loss}")
 	# print(avg_sum)
@@ -37,13 +39,9 @@ with open(budget_data_csv, newline="") as csvfile:
 	for surev in range(len(ttl_yield)-1):
 		monthly_change.append(ttl_yield[surev +1]-ttl_yield[surev])
 	
-
 		Average_change = round((sum(monthly_change)/len(monthly_change)),2)
-	print(Average_change)
-	print(sum(monthly_change)/len(monthly_change))
-
-
-
+	print('Anverage Change: $',Average_change)
+	# print(sum(monthly_change)/len(monthly_change))
 
 GreatIncrease = prof_loss[0]
 GreatDecrease = prof_loss[0]
@@ -62,9 +60,9 @@ GreatIncrease = max(monthly_change)
 GreatDecrease = min(monthly_change)
 
 
-print(GreatIncrease_month, GreatIncrease)
-print(GreatDecrease_month, GreatDecrease)
-print(ttl_profit_loss)
+print('Greatest Increase in Profits:', GreatIncrease_month, GreatIncrease)
+print('Greatest Decrease in Profits:', GreatDecrease_month, GreatDecrease)
+# print(ttl_profit_loss)
 
 # Set variable for output file 	
 output_file = os.path.join("PyBank_sum.txt")
