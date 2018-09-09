@@ -36,8 +36,14 @@ with open(budget_data_csv, newline="") as csvfile:
 
 	for surev in range(len(ttl_yield)-1):
 		monthly_change.append(ttl_yield[surev +1]-ttl_yield[surev])
+	
 
+		Average_change = round((sum(monthly_change)/len(monthly_change)),2)
+	print(Average_change)
 	print(sum(monthly_change)/len(monthly_change))
+
+
+
 
 GreatIncrease = prof_loss[0]
 GreatDecrease = prof_loss[0]
@@ -51,6 +57,10 @@ for srev in range(len(prof_loss)):
 		GreatDecrease = prof_loss[srev]
 		GreatDecrease_month = between_months[srev]
 	ttl_profit_loss += prof_loss[srev]
+
+GreatIncrease = max(monthly_change)
+GreatDecrease = min(monthly_change)
+
 
 print(GreatIncrease_month, GreatIncrease)
 print(GreatDecrease_month, GreatDecrease)
@@ -67,5 +77,6 @@ with open(output_file, "w", newline='') as datafile:
     csvwriter.writerow(['------------------------------'])
     csvwriter.writerow(['Total Months: \t'+ str(all_months)])
     csvwriter.writerow(['Total: \t$' + str( ttl_profit_loss)])
+    csvwriter.writerow(['Average Change: \t$' + str(Average_change)])
     csvwriter.writerow(['Greatest Increase in Profits: \t' + str(GreatIncrease_month) + '\t$' + str(GreatIncrease)])
     csvwriter.writerow(['Greatest Decrease in Profits: \t' + str(GreatDecrease_month) + '\t$' + str(GreatDecrease)])
