@@ -54,8 +54,6 @@ vote_dict = {"Khan":k_votes,
 				}
 # print(vote_dict)
 
-
-
 # The percentage of votes each candidate won
 k_percent = ('{0:.3f}%'.format((k_votes/ttl_votes)*100))
 c_percent = ('{0:.3f}%'.format((c_votes/ttl_votes)*100))
