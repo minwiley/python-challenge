@@ -4,7 +4,6 @@
 import os
 import csv
 
-
 ttl_yield = []
 prof_loss = []
 between_months = []
@@ -58,7 +57,6 @@ for srev in range(len(prof_loss)):
 
 GreatIncrease = max(monthly_change)
 GreatDecrease = min(monthly_change)
-
 
 print('Greatest Increase in Profits:', GreatIncrease_month, GreatIncrease)
 print('Greatest Decrease in Profits:', GreatDecrease_month, GreatDecrease)
