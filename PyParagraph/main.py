@@ -20,9 +20,8 @@ with open(paragraph1_csv, newline="") as csvfile:
 	
 	
 # Set variable for output file 	
-output_file = os.path.join("PyBank_sum.txt")
+output_file = os.path.join("PyParagraph_sum.txt")
 
 #  Open the output file
 with open(output_file, "w", newline='') as datafile:
     csvwriter = csv.writer(datafile, delimiter=',')
-    csvwriter = csv.writer(datafile)    
